@@ -19,10 +19,10 @@
         <a href="#product" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Product</a>
         <ul class="collapse list-unstyled" id="product">
           <li>
-              <a href="{{ route('allproduct')}}">ALl product</a>
+              <a href="{{ route('products.index')}}">ALl product</a>
           </li>
           <li>
-              <a href="{{ route('newproduct')}}">Add new product</a>
+              <a href="{{ route('products.create')}}">Add new product</a>
           </li>
         </ul>
         </li>

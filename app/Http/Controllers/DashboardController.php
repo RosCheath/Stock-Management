@@ -15,13 +15,13 @@ class DashboardController extends Controller
         return view('dashboard.profile');
     }
 
-    public function allproduct(){
-        return view('dashboard.allproduct');
-    }
+    // public function allproduct(){
+    //     return view('dashboard.allproduct');
+    // }
 
-    public function newproduct(){
-        return view('dashboard.newproduct');
-    }
+    // public function newproduct(){
+    //     return view('dashboard.newproduct');
+    // }
 
     public function allcategory(){
         return view('dashboard.allcategory');

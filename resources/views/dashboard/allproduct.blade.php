@@ -1,5 +1,5 @@
 @extends('home')
 
 @section('content')
-<h1>profile</h1>
+<h1>All Product</h1>
 @endsection

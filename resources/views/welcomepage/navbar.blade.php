@@ -9,8 +9,13 @@
           <li><a class="nav-link active" href="#header">Home</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
+          @if(Auth::user())
+          <li><a class="nav-link" href="{{route('login')}}">Home</a></li>
+          
+          @else
           <li><a class="nav-link" href="{{route('login')}}">Sign In</a></li>
           <li><a class="nav-link" href="{{ route('register') }}">Sign Up</a></li>
+          @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -19,7 +24,6 @@
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
       </div>
 
     </div>

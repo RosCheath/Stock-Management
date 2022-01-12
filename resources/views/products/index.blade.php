@@ -1,53 +1,80 @@
 @extends('home')
 
 @section('content')
-    <div class="col-lg-8 col-md-10 mx-auto">
-        <h1>All Product</h1>
-      </a>
-        <table class="table table-border">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>category</th>
-              <th>Name</th>
-              <th>quanity</th>
-              <th>unitprice</th>
-              <th>sellingprice</th>
-              <th>receive</th>
-              <th>expire</th>
-              <th>
-                Edit
-              </th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($products as $product)
-              <>
-                <td>{{ $loop->index + 1 }}</td>
-                <td>{{ $product->category }}</td>
-                <td>{{ $product->name }}</td>
-                <td>{{ $product->quanity }}</td>
-                <td>{{ $product->unitprice }}</td>
-                <td>{{ $product->sellingprice }}</td>
-                <td>{{ $product->receive }}</td>
-                <td>{{ $product->expire }}</td>
-                <td>
-                        <a class="btn btn-outline-primary" href="{{ route('products.edit', $product->id) }}">Edit </a>
-                       </td>
-              <td>
-                        <form id="productDelete{{$product->id}}" method="POST" action="{{ route('products.destroy', $product->id) }}">
-                          @csrf
-                          @method('DELETE')
-                        </form>
-                        <a class="btn btn-outline-danger" href="#" onclick="document.getElementById('productDelete{{$product->id}}').submit()">Delete</a>
-              </td>
-                
-               
-              </tr>
-            @endforeach
-          </tbody>
-      </table>
+    <!--CONTENT CONTAINER-->
+    <!--===================================================-->
+    <div id="content-container">
+        <div class="pageheader">
+            <h3><i class="fa fa-home"></i> Datatable Table </h3>
+            <div class="breadcrumb-wrapper">
+                <span class="label">You are here:</span>
+                <ol class="breadcrumb">
+                    <li> <a href="#"> Home </a> </li>
+                    <li class="active"> datatable Table </li>
+                </ol>
+            </div>
+        </div>
+        <!--Page content-->
+        <!--===================================================-->
+        <div id="page-content">
+
+            <!-- Add Row -->
+            <!--===================================================-->
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Products</h3>
+                </div>
+                <div id="demo-custom-toolbar2" class="table-toolbar-left">
+                    <a id="demo-dt-addrow-btn" href="{{route('products.create')}}" class="btn btn-pink">Add New</a>
+                </div>
+                <div class="panel-body">
+                    <table id="demo-dt-addrow" class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Selling Price</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($products as $product)
+                        <tr>
+                            <td>{{ $product->name }}</td>
+                            <td>{{ $product->category->name }}</td>
+                            <td>{{ $product->quanity }}</td>
+                            <td>{{ $product->unit_price }}</td>
+                            <td>{{ $product->selling_price }}</td>
+                            <td>{{ $product->created_at }}</td>
+
+                        <td>
+                            <a class="btn btn-xs btn-primary" href="{{ route('products.edit', $product->id) }}"><i class="fa fa-edit"></i>
+                            <br>
+                            <form id="productDelete{{$product->id}}" method="POST" action="{{ route('products.destroy', $product->id) }}">
+                                @csrf
+                                @method('DELETE')
+                            </form>
+                            <a class="btn btn-xs btn-danger" href="#" onclick="document.getElementById('productDelete{{$product->id}}').submit()"><i class="fa fa-trash"></i></a>
+                            </a>
+                        </td>
+
+                        </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--===================================================-->
+            <!-- End Add Row -->
+        </div>
+        <!--===================================================-->
+        <!--End page content-->
     </div>
-  <hr>
+    <!--===================================================-->
+    <!--END CONTENT CONTAINER-->
+
+
 @endsection

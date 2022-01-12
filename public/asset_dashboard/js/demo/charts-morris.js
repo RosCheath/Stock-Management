@@ -341,10 +341,11 @@
 	// -----------------------------------------------------------------
 	// http://morrisjs.github.io/morris.js/
 	// =================================================================
-	Morris.Donut({
+     let UserCount =13;
+     Morris.Donut({
 		element: 'demo-morris-color-donut',
 		data: [
-			{label: "Download Sales", value: 12},
+			{label: "Total User", value: UserCount},
 			{label: "In-Store Sales", value: 30},
 			{label: "COD Sales", value: 40},
 			{label: "Mail-Order Sales", value: 20}
@@ -371,5 +372,18 @@
 		colors: ['#679dc6', '#3980b5', '#95BBD7', '#0B62A4'],
 		resize:true,
 	});
+
+     Morris.Donut({
+         element: 'graph-chart',
+         data: [
+             {value: 70, label: 'foo'},
+             {value: 15, label: 'bar'},
+             {value: 10, label: 'baz'},
+             {value: 5, label: 'A really really long label'}
+         ],
+         formatter: function (x) { return x + "%"}
+     }).on('click', function(i, row){
+         console.log(i, row);
+     });
 
 });

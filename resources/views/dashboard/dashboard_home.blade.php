@@ -1,6 +1,7 @@
 @extends('home')
 
 @section('content')
+
     <div id="content-container">
 
         <!--Page Title-->
@@ -107,11 +108,11 @@
                             <div class="col-md-4">
                                 <ul class="list-unstyled">
                                     <li class="mar-btm">
-                                        <span class="label label-primary pull-right">75%</span>
+                                        <span class="label label-primary pull-right">15%</span>
                                         <p> <i class="fa fa-dashboard text-primary"></i> CPU Usage</p>
                                         <div class="progress progress-sm">
-                                            <div class="progress-bar progress-bar-primary" style="width: 75%;">
-                                                <span class="sr-only">75%</span>
+                                            <div class="progress-bar progress-bar-primary" style="width: 15%;">
+                                                <span class="sr-only">15%</span>
                                             </div>
                                         </div>
                                     </li>
@@ -147,7 +148,7 @@
                                         <p> <i class="fa fa-at"></i> Domain</p>
                                         <div class="progress progress-sm">
                                             <div class="progress-bar progress-bar-mint" style="width: 75%;">
-                                                <span class="sr-only">75%</span>
+                                                <span class="sr-only">15%</span>
                                             </div>
                                         </div>
                                     </li>
@@ -159,13 +160,12 @@
                 <div class="col-md-3">
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title"> Sales Chart </h3>
+                            <h3 class="panel-title"> Products Chart </h3>
                         </div>
                         <div class="panel-body">
                             <!--Morris Area Chart placeholder-->
                             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                            <div id="demo-morris-color-donut" style="height:275px"></div>
-                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                            <div id="graph-chart" style="height:275px"></div>
                         </div>
                     </div>
                 </div>
@@ -196,7 +196,7 @@
                             </ul>
                             <!--Flot Area Chart placeholder-->
                             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                            <div id="demo-realtime" style="height:265px"></div>
+                            <div id="morris-bar-chart" style="height:265px" data-colors="#29abe2,#ffc142,#1ab394"></div>
                             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
                         </div>
                     </div>
@@ -723,5 +723,7 @@
         </div>
         <!--===================================================-->
         <!--End page content-->
+
     </div>
+
 @endsection

@@ -57,31 +57,16 @@
         </li>
         <!-- end standard drop down -->
         <!-- standard drop down -->
-        <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle"> Mail <b class="caret"></b></a>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="mail-inbox.html"> Inbox </a></li>
-                <li><a href="mail-compose.html"> Compose Mail </a></li>
-                <li><a href="mail-mailview.html"> View Mail </a></li>
-            </ul>
-            <!-- end dropdown-menu -->
+        <li class="{{ (request()->is('history*')) ? 'active' : '' }}">
+            <a href="{{route('history.index')}}" > History </a>
         </li>
         <!-- end standard drop down -->
         <!-- standard drop down -->
+        @can('super-admin-feature')
         <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle"> Maps <b class="caret"></b></a>
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle"> User Manager <b class="caret"></b></a>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="maps-gmap.html"> Google Map </a></li>
-                <li><a href="maps-vectormap.html"> Vector Map </a></li>
-            </ul>
-            <!-- end dropdown-menu -->
-        </li>
-        <!-- end standard drop down -->
-        <!-- standard drop down -->
-        <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle"> Menu Levels <b class="caret"></b></a>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Second Level</a></li>
+                <li><a href="#">All User</a></li>
                 <li><a href="#">Second Level</a></li>
                 <li class="dropdown-submenu">
                     <a href="#">Second Level</a>
@@ -101,6 +86,7 @@
                 </li>
                 <li><a href="#">Creattica</a></li>
             </ul>
+        @endcan
             <!-- end dropdown-menu -->
         </li>
         <!-- end standard drop down -->

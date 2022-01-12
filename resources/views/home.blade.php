@@ -6,6 +6,13 @@
     <title> SmartAdmin - Responsive admin template..</title>
     <link rel="shortcut icon" href="{{asset('asset_dashboard/img/favicon.ico')}}">
     <!--STYLESHEET-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+
     <!--=================================================-->
     <!--Roboto Slab Font [ OPTIONAL ] -->
     <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700" rel="stylesheet">
@@ -31,30 +38,8 @@
     <link href="{{asset('asset_dashboard/plugins/pace/pace.min.css')}}" rel="stylesheet">
     <script src="{{asset('asset_dashboard/plugins/pace/pace.min.js')}}"></script>
 
-{{--    <!--STYLESHEET-->--}}
-{{--    <!--=================================================-->--}}
-{{--    <!--Roboto Slab Font [ OPTIONAL ] -->--}}
-{{--    <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700" rel="stylesheet">--}}
-{{--    <link href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400" rel="stylesheet">--}}
-{{--    <!--Bootstrap Stylesheet [ REQUIRED ]-->--}}
-{{--    <link href="{{asset('asset_dashboard/css/bootstrap.min.css')}}" rel="stylesheet">--}}
-{{--    <!--Jasmine Stylesheet [ REQUIRED ]-->--}}
-{{--    <link href="{{asset('asset_dashboard/css/style.css')}}" rel="stylesheet">--}}
-{{--    <!--Font Awesome [ OPTIONAL ]-->--}}
-{{--    <link href="{{asset('asset_dashboard/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">--}}
-{{--    <!--Switchery [ OPTIONAL ]-->--}}
-{{--    <link href="{{asset('asset_dashboard/plugins/switchery/switchery.min.css')}}" rel="stylesheet">--}}
-{{--    <!--Bootstrap Select [ OPTIONAL ]-->--}}
-{{--    <link href="{{asset('asset_dashboard/plugins/bootstrap-select/bootstrap-select.min.css')}}" rel="stylesheet">--}}
     <!--Full Calendar [ OPTIONAL ]-->
     <link href="{{asset('asset_dashboard/plugins/fullcalendar/fullcalendar.css')}}" rel="stylesheet">
-{{--    <!--Demo [ DEMONSTRATION ]-->--}}
-{{--    <link href="{{asset('asset_dashboard/css/demo/jasmine.css')}}" rel="stylesheet">--}}
-{{--    <!--SCRIPT-->--}}
-{{--    <!--=================================================-->--}}
-{{--    <!--Page Load Progress Bar [ OPTIONAL ]-->--}}
-{{--    <link href="{{asset('asset_dashboard/plugins/pace/pace.min.css')}}" rel="stylesheet">--}}
-{{--    <script src="{{asset('asset_dashboard/plugins/pace/pace.min.js')}}"></script>--}}
 </head>
 <body>
 <div id="container" class="effect mainnav-full">
@@ -189,6 +174,7 @@
 <!--=================================================-->
 <!--jQuery [ REQUIRED ]-->
 <script src="{{asset('asset_dashboard/js/jquery-2.1.1.min.js')}}"></script>
+
 <!--BootstrapJS [ RECOMMENDED ]-->
 <script src="{{asset('asset_dashboard/js/bootstrap.min.js')}}"></script>
 <!--Fast Click [ OPTIONAL ]-->
@@ -242,60 +228,14 @@
 <!--DataTables Sample [ SAMPLE ]-->
 <script src="{{asset('asset_dashboard/js/demo/tables-datatables.js')}}"></script>
 
-{{--<!--JAVASCRIPT-->--}}
-{{--<!--=================================================-->--}}
-{{--<!--jQuery [ REQUIRED ]-->--}}
-{{--<!--jQuery [ REQUIRED ]-->--}}
-{{--<script src="{{asset('asset_dashboard/js/jquery-2.1.1.min.js')}}"></script>--}}
-{{--<!--BootstrapJS [ RECOMMENDED ]-->--}}
-{{--<script src="{{asset('asset_dashboard/js/bootstrap.min.js')}}"></script>--}}
-{{--<!--Fast Click [ OPTIONAL ]-->--}}
-{{--<script src="{{asset('asset_dashboard/plugins/fast-click/fastclick.min.js')}}"></script>--}}
-{{--<!--Jquery Nano Scroller js [ REQUIRED ]-->--}}
-{{--<script src="{{asset('asset_dashboard/plugins/nanoscrollerjs/jquery.nanoscroller.min.js')}}"></script>--}}
-{{--<!--Metismenu js [ REQUIRED ]-->--}}
-{{--<script src="{{asset('asset_dashboard/plugins/metismenu/metismenu.min.js')}}"></script>--}}
-{{--<!--Jasmine Admin [ RECOMMENDED ]-->--}}
-{{--<script src="{{asset('asset_dashboard/js/scripts.js')}}"></script>--}}
-{{--<!--Switchery [ OPTIONAL ]-->--}}
-{{--<script src="{{asset('asset_dashboard/plugins/switchery/switchery.min.js')}}"></script>--}}
-{{--<!--Bootstrap Select [ OPTIONAL ]-->--}}
-{{--<script src="{{asset('asset_dashboard/plugins/bootstrap-select/bootstrap-select.min.js')}}"></script>--}}
-<!--Full Calendar [ OPTIONAL ]-->
-{{--<script src="{{asset('asset_dashboard/plugins/fullcalendar/lib/moment.min.js')}}"></script>--}}
 <script src="{{asset('asset_dashboard/plugins/fullcalendar/lib/jquery-ui.custom.min.js')}}"></script>
 <script src="{{asset('asset_dashboard/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
 <!--Full Calendar [ SAMPLE ]-->
 <script src="{{asset('asset_dashboard/js/demo/fullcalendar.js')}}"></script>
-{{--<!--Fullscreen jQuery [ OPTIONAL ]-->--}}
-{{--<script src="{{asset('asset_dashboard/plugins/screenfull/screenfull.js')}}"></script>--}}
-
-
-<!--JAVASCRIPT DataTables-->
-<!--=================================================-->
-<!--jQuery [ REQUIRED ]-->
-{{--<script src="{{asset('asset_dashboard/js/jquery-2.1.1.min.js')}}"></script>--}}
-<!--BootstrapJS [ RECOMMENDED ]-->
-{{--<script src="{{asset('asset_dashboard/js/bootstrap.min.js')}}"></script>--}}
-<!--Fast Click [ OPTIONAL ]-->
-{{--<script src="{{asset('asset_dashboard/plugins/fast-click/fastclick.min.js')}}"></script>--}}
-<!--Jquery Nano Scroller js [ REQUIRED ]-->
-{{--<script src="{{asset('asset_dashboard/plugins/nanoscrollerjs/jquery.nanoscroller.min.js')}}"></script>--}}
-<!--Metismenu js [ REQUIRED ]-->
-{{--<script src="{{asset('asset_dashboard/plugins/metismenu/metismenu.min.js')}}"></script>--}}
-<!--Jasmine Admin [ RECOMMENDED ]-->
-{{--<script src="{{asset('asset_dashboard/js/scripts.js')}}"></script>--}}
-<!--Switchery [ OPTIONAL ]-->
-{{--<script src="{{asset('asset_dashboard/plugins/switchery/switchery.min.js')}}"></script>--}}
-<!--Bootstrap Select [ OPTIONAL ]-->
-{{--<script src="{{asset('asset_dashboard/plugins/bootstrap-select/bootstrap-select.min.js')}}"></script>--}}
-<!--DataTables [ OPTIONAL ]-->
-{{--<script src="{{asset('asset_dashboard/plugins/datatables/media/js/jquery.dataTables.js')}}"></script>--}}
-{{--<script src="{{asset('asset_dashboard/plugins/datatables/media/js/dataTables.bootstrap.js')}}"></script>--}}
-{{--<script src="{{asset('asset_dashboard/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js')}}"></script>--}}
-<!--Fullscreen jQuery [ OPTIONAL ]-->
-{{--<script src="{{asset('asset_dashboard/plugins/screenfull/screenfull.js')}}"></script>--}}
-<!--DataTables Sample [ SAMPLE ]-->
+<script src="{{asset('asset_dashboard/js/demo/charts-morris.js')}}"></script>
 <script src="{{asset('asset_dashboard/js/demo/tables-datatables.js')}}"></script>
+
+<!--Chart Total-->
+<script src="{{asset('asset_dashboard/js/chart-flot.js')}}"></script>
 </body>
 </html>

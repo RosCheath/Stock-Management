@@ -24,16 +24,8 @@
         </li>
         <!-- end standard drop down -->
         <!-- standard drop down -->
-        <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle"> Forms <b class="caret"></b></a>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="forms-layout.html"> Form Layout </a></li>
-                <li><a href="forms-switchery.html"> Form Switchery </a></li>
-                <li><a href="forms-components.html"> Form Components </a></li>
-                <li><a href="forms-validation.html"> Form Validation </a></li>
-                <li><a href="forms-wizard.html"> Form Wizard </a></li>
-            </ul>
-            <!-- end dropdown-menu -->
+        <li class="{{ (request()->is('stock*')) ? 'active' : '' }}">
+            <a href="{{route('stock.index')}}" > Stock </a>
         </li>
         <!-- end standard drop down -->
         <!-- standard drop down -->

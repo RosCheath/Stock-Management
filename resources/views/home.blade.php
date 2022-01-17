@@ -40,6 +40,9 @@
 
     <!--Full Calendar [ OPTIONAL ]-->
     <link href="{{asset('asset_dashboard/plugins/fullcalendar/fullcalendar.css')}}" rel="stylesheet">
+
+    <!--DataTables Sample [ SAMPLE ]-->
+    <script src="{{asset('asset_dashboard/js/demo/tables-datatables.js')}}"></script>
 </head>
 <body>
 <div id="container" class="effect mainnav-full">

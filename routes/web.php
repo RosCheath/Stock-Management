@@ -29,6 +29,7 @@ Route::group(['web'],function()
     Route::resource('products', App\Http\Controllers\ProductController::class);
     Route::resource('category', App\Http\Controllers\CategoryController::class);
     Route::resource('history', App\Http\Controllers\HistoryController::class);
+    Route::resource('stock', App\Http\Controllers\StockController::class);
 
 });
 

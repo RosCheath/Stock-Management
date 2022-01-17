@@ -22,10 +22,10 @@
             <!--===================================================-->
             <div class="panel">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Products</h3>
+                    <h3 class="panel-title">Stock</h3>
                 </div>
                 <div id="demo-custom-toolbar2" class="table-toolbar-left">
-                    <a id="demo-dt-addrow-btn" href="{{route('products.create')}}" class="btn btn-pink">Add New</a>
+                    <a id="demo-dt-addrow-btn" href="{{route('stock.create')}}" class="btn btn-pink">Add New</a>
                 </div>
                 <div class="panel-body">
                     <table id="demo-dt-addrow" class="table table-striped table-bordered">
@@ -33,6 +33,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Category</th>
+                            <th>Quantity</th>
                             <th>Unit Price</th>
                             <th>Selling Price</th>
                             <th>Date</th>
@@ -40,22 +41,23 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($products as $product)
+                        @foreach($stock as $stock)
                         <tr>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->category->name }}</td>
-                            <td>{{ $product->unit_price }}</td>
-                            <td>{{ $product->selling_price }}</td>
-                            <td>{{ $product->created_at }}</td>
+                            <td>{{ $stock->product->name }}</td>
+                            <td>{{ $stock->product->category->name }}</td>
+                            <td>{{ $stock->quantity }}</td>
+                            <td>{{ $stock->product->unit_price }}</td>
+                            <td>{{ $stock->product->selling_price }}</td>
+                            <td>{{ $stock->product->created_at }}</td>
 
                         <td>
-                            <a class="btn btn-xs btn-primary" href="{{ route('products.edit', $product->id) }}"><i class="fa fa-edit"></i>
+                            <a class="btn btn-xs btn-primary" href="{{ route('stock.edit', $stock->id) }}"><i class="fa fa-edit"></i>
                             <br>
-                            <form id="productDelete{{$product->id}}" method="POST" action="{{ route('products.destroy', $product->id) }}">
+                            <form id="stockDelete{{$stock->id}}" method="POST" action="{{ route('stock.destroy', $stock->id) }}">
                                 @csrf
                                 @method('DELETE')
                             </form>
-                            <a class="btn btn-xs btn-danger" href="#" onclick="document.getElementById('productDelete{{$product->id}}').submit()"><i class="fa fa-trash"></i></a>
+                            <a class="btn btn-xs btn-danger" href="#" onclick="document.getElementById('stockDelete{{$stock->id}}').submit()"><i class="fa fa-trash"></i></a>
                             </a>
                         </td>
 

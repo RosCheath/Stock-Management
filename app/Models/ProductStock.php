@@ -5,20 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class History extends Model
+class ProductStock extends Model
 {
     use HasFactory;
+
     public $fillable = [
-       'product_id','category_id'
+        'quantity','location','product_id'
     ];
 
-    public function category_history()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function product_history()
+    public function product()
     {
         return $this->belongsTo(Product::class);
     }
 }
+

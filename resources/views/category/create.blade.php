@@ -35,7 +35,7 @@
                         @csrf
                         <div class="form-group mx-sm-3 mb-2">
                             <label for="demo-inline-inputmail" class="sr-only">Name</label>
-                            <input type="text" placeholder="Name Category" name="name" id="demo-inline-inputmail" class="form-control">
+                            <input type="text" placeholder="Name Category" name="name" id="demo-inline-inputmail" required class="form-control">
                         </div>
                         <button class="btn btn-primary" value="create" type="submit">Create</button>
                     </form>

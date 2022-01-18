@@ -33,8 +33,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Category</th>
-                            <th>Unit Price</th>
-                            <th>Selling Price</th>
+                            <th>Year</th>
                             <th>Date</th>
                             <th>Action</th>
                         </tr>
@@ -44,8 +43,7 @@
                         <tr>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->category->name }}</td>
-                            <td>{{ $product->unit_price }}</td>
-                            <td>{{ $product->selling_price }}</td>
+                            <td>{{ $product->year }}</td>
                             <td>{{ $product->created_at }}</td>
 
                         <td>

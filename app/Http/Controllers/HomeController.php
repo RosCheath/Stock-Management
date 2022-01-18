@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,10 +22,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        return view('home',);
     }
     public function home_dashboard()
     {
-        return view('dashboard.dashboard_home');
+        $productCount = DB::table('products')->count();
+        return view('dashboard.dashboard_home',compact('productCount'));
     }
 }

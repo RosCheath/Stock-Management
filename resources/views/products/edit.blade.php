@@ -50,25 +50,24 @@
                                             <!-- Bootstrap Select with Search Input -->
                                             <!--===================================================-->
                                             <select class="form-control selectpicker" data-live-search="true" id="category_id" name="category_id">
-                                                @foreach($categories as $category)--}}
+                                                @foreach($categories as $category)
                                                 <option value="{{ $category->id }}" @if($product->category_id === $category->id) selected @endif>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                             <!--===================================================-->
                                         </div>
                                     </div>
-
-                                    <div class="form-group">
-                                        <label class="col-lg-3 control-label">Quantity</label>
-                                        <div class="col-lg-5">
-                                            <input type="text" class="form-control" name="quanity" placeholder="Quantity" required value="{{$product->quanity}}">
-                                        </div>
-                                    </div>
-
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Unit Price</label>
                                         <div class="col-lg-5">
                                             <input type="text" class="form-control" name="unit_price" placeholder="Unit Price" required value="{{$product->unit_price}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Year</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control" name="year" placeholder="year" required value="{{$product->year}}">
                                         </div>
                                     </div>
 

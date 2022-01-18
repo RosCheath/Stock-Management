@@ -13,6 +13,7 @@ class ProductController extends Controller
 {
     public function index()
     {
+
         $products = Product::get();
         return view('products.index',compact('products'));
     }
@@ -65,10 +66,12 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::get();
+        $product_stocks = ProductStock::get();
         return view('products.edit',
         [
             'product' => $product,
-            'categories' => $categories
+            'categories' => $categories,
+            'product_stocks' => $product_stocks
         ]);
     }
     public function update(Request $request ,Product $product)

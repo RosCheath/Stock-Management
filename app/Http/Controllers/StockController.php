@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\ProductStock;
 use Illuminate\Http\Request;
 
@@ -54,11 +55,17 @@ class StockController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product_stocks = ProductStock::findOrFail($id);
+        return view('stock.edit',
+            [
+                'product_stocks' => $product_stocks,
+                'product' => $product,
+            ]);
     }
 
     /**
@@ -66,11 +73,13 @@ class StockController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, $id)
     {
-        //
+        $product_stocks = ProductStock::findOrFail($id);
+        $product_stocks->update($request->all());
+        return redirect(route('stock.index'));
     }
 
     /**

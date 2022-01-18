@@ -94,68 +94,34 @@
             </div>
             <div class="row">
                 <div class="col-md-9">
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"> Network Performance </h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="col-md-8">
-                                <!--Flot Spline Chart placeholder -->
-                                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                                <div id="flot-spline" style="height:275px;"></div>
-                                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                            </div>
-                            <div class="col-md-4">
-                                <ul class="list-unstyled">
-                                    <li class="mar-btm">
-                                        <span class="label label-primary pull-right">15%</span>
-                                        <p> <i class="fa fa-dashboard text-primary"></i> CPU Usage</p>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar progress-bar-primary" style="width: 15%;">
-                                                <span class="sr-only">15%</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mar-btm">
-                                        <span class="label label-danger pull-right">55%</span>
-                                        <p><i class="fa fa-database text-danger"></i> Bandwidth</p>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar progress-bar-danger" style="width: 55%;">
-                                                <span class="sr-only">55%</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mar-btm">
-                                        <span class="label label-success pull-right">65%</span>
-                                        <p><i class="fa fa-cubes text-success"></i> Memory Usage</p>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar progress-bar-success" style="width: 65%;">
-                                                <span class="sr-only">65%</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mar-btm">
-                                        <span class="label label-warning pull-right">45%</span>
-                                        <p><i class="fa fa-hdd-o text-warning"></i> Disk Usage</p>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar progress-bar-warning" style="width: 45%;">
-                                                <span class="sr-only">45%</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mar-btm">
-                                        <span class="label label-mint pull-right">3/10</span>
-                                        <p> <i class="fa fa-at"></i> Domain</p>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar progress-bar-mint" style="width: 75%;">
-                                                <span class="sr-only">15%</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <script type="text/javascript">
+                        window.onload = function () {
+                            var chart = new CanvasJS.Chart("chartContainer", {
+
+                                title:{
+                                    text: "Fruits sold in First Quarter"
+                                },
+                                data: [//array of dataSeries
+                                    { //dataSeries object
+
+                                        /*** Change type "column" to "bar", "area", "line" or "pie"***/
+                                        type: "column",
+                                        dataPoints: [
+                                            { label: "Products", y: {{$productCount}} },
+                                            { label: "orange", y: 29 },
+                                            { label: "apple", y: 40 },
+                                            { label: "mango", y: 34 },
+                                            { label: "grape", y: 24 }
+                                        ]
+                                    }
+                                ]
+                            });
+
+                            chart.render();
+                        }
+                    </script>
+                    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                    <div id="chartContainer" style="height: 360px; width: 100%;"></div>
                 </div>
                 <div class="col-md-3">
                     <div class="panel">
@@ -166,40 +132,57 @@
                             <!--Morris Area Chart placeholder-->
                             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
                             <div id="graph-chart" style="height:275px"></div>
+                            <script type="text/javascript">
+                                Morris.Donut({
+                                    element: 'graph-chart',
+                                    data: [
+                                        {value: {{$productCount}}, label: 'Water'},
+                                        {value: 15, label: 'Cake'},
+                                        {value: 10, label: 'Beer'},
+                                        {value: 5, label: 'Candy'}
+                                    ],
+                                    colors: ['#E9422E', '#FAC552', '#3eb489', '#29b7d3'],
+                                    resize:true,
+                                    formatter: function (x) { return x + "%"}
+                                }).on('click', function(i, row){
+                                    console.log(i, row);
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <div class="panel">
-                        <div class="panel-body">
-                            <ul class="nav nav-section nav-justified">
-                                <li>
-                                    <div class="section">
-                                        <h4 class="nm"> 67 GB </h4>
-                                        <p class="text-muted">Total Usage</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="section">
-                                        <h4 class="nm"> 320 GB </h4>
-                                        <p class="text-muted">Total Space</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="section">
-                                        <h4 class="nm"> 58% </h4>
-                                        <p class="text-muted">CPU</p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <!--Flot Area Chart placeholder-->
-                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                            <div id="morris-bar-chart" style="height:265px" data-colors="#29abe2,#ffc142,#1ab394"></div>
-                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                        </div>
-                    </div>
+{{--                    <div class="panel">--}}
+{{--                        <div class="panel-body">--}}
+{{--                            <ul class="nav nav-section nav-justified">--}}
+{{--                                <li>--}}
+{{--                                    <div class="section">--}}
+{{--                                        <h4 class="nm"> 67 GB </h4>--}}
+{{--                                        <p class="text-muted">Total Usage</p>--}}
+{{--                                    </div>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <div class="section">--}}
+{{--                                        <h4 class="nm"> 320 GB </h4>--}}
+{{--                                        <p class="text-muted">Total Space</p>--}}
+{{--                                    </div>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <div class="section">--}}
+{{--                                        <h4 class="nm"> 58% </h4>--}}
+{{--                                        <p class="text-muted">CPU</p>--}}
+{{--                                    </div>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                            <!--Flot Area Chart placeholder-->--}}
+{{--                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->--}}
+{{--                            <div id="morris-bar-chart" style="height:265px" data-colors="#29abe2,#ffc142,#1ab394"></div>--}}
+{{--                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+
                 </div>
                 <div class="col-md-4">
                     <div class="panel">

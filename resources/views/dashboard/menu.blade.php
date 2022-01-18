@@ -13,12 +13,12 @@
         </li>
         <!-- end standard drop down -->
         <!-- standard drop down -->
-        <li class="{{ (request()->is('category')) ? 'active' : '' }}">
+        <li class="{{ (request()->is('category*')) ? 'active' : '' }}">
             <a href="{{route('category.index')}}" > Category</a>
         </li>
         <!-- end standard drop down -->
         <!-- standard drop down -->
-        <li class="{{ (request()->is('employee')) ? 'active' : '' }}">
+        <li class="{{ (request()->is('employee*')) ? 'active' : '' }}">
             <a href="#" > Employee</a>
             <!-- end dropdown-menu -->
         </li>

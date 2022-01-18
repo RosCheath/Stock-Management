@@ -29,30 +29,31 @@ class ProductController extends Controller
     }
     public function store(Request $request)
     {
+        $n =1;
         $product = new Product();
         $product -> user_id = Auth::id();
+        $product->stock_id = $n;
         $product -> name = $request->name;
         $product -> category_id = $request->category_id;
         $product -> unit_price = $request->unit_price;
         $product -> selling_price = $request->selling_price;
         $product -> year = $request->year;
 
-
-
         if($request->hasFile('photo')){
             $photo = $request->photo;
             $name = Str::random(60) . '' . $photo->getClientOriginalExtension();
             $photo->storeAs('public/product_image',$name);
             $product->photo = $photo;
+
         }
         $product->save();
 
-                $product_stocks = new ProductStock();
-                $product_stocks->product_id = $product->id;
-                $product_stocks->location = $request->location;
-                $product_stocks->quantity = $request->quantity;
-                $product_stocks->save();
-
+        $product_stocks = new ProductStock();
+        $product_stocks->product_id = $product->id;
+        $product_stocks->location = $request->location;
+        $product_stocks->quantity = $request->quantity;
+        $product_stocks->save();
+        
         return redirect(route('products.index'));
     }
 

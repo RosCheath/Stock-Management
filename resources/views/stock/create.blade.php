@@ -24,7 +24,7 @@
             <!--End page title-->
             <!--Page content-->
             <!--===================================================-->
-            <form method="post" action="{{ route('products.store')}}">
+            <form method="post" action="{{ route('stock.store')}}">
             @csrf
             <div id="page-content">
                 <div class="row">
@@ -40,39 +40,31 @@
                                     <!--SHOWING ERRORS IN TOOLTIP-->
                                     <!--===================================================-->
                                     <div class="form-group">
-                                        <label class="col-lg-3 control-label">Name</label>
-                                        <div class="col-lg-5">
-                                            <input type="text" class="form-control" name="name" placeholder="Name" required value="{{old('name')}}">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-lg-3 control-label"> Category </label>
+                                        <label class="col-lg-3 control-label"> Name </label>
                                         <div class="col-lg-5">
                                             <!-- Bootstrap Select with Search Input -->
                                             <!--===================================================-->
-                                            <select class="form-control selectpicker" data-live-search="true" id="category_id" name="category_id">
-                                                @foreach($categories as $category)--}}
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <select class="form-control selectpicker" data-live-search="true" id="product_id" name="product_id">
+                                                @foreach($product as $product)
+                                                <option value="{{ $product->id }}">{{ $product->name }}</option>
                                                 @endforeach
                                             </select>
                                             <!--===================================================-->
                                         </div>
                                     </div>
-
                                     <div class="form-group">
-                                        <label class="col-lg-3 control-label">Unit Price</label>
+                                        <label class="col-lg-3 control-label"> Stock Type </label>
                                         <div class="col-lg-5">
-                                            <input type="text" class="form-control" name="unit_price" placeholder="Unit Price" required value="{{old('quanity')}}">
+                                            <!-- Bootstrap Select with Search Input -->
+                                            <!--===================================================-->
+                                            <select class="form-control selectpicker" id="status" name="status_type">
+                                                    <option value="in">IN</option>
+                                                     <option value="out">OUT</option>
+                                            </select>
+                                            <!--===================================================-->
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label class="col-lg-3 control-label">Selling Price</label>
-                                        <div class="col-lg-5">
-                                            <input type="text" class="form-control" name="selling_price" placeholder="Selling Price" required value="{{old('selling_price')}}">
-                                        </div>
-                                    </div>
 
                                     <!--===================================================-->
                                 </div>
@@ -97,37 +89,9 @@
                                     <!--SHOWING ERRORS IN TOOLTIP-->
                                     <!--===================================================-->
                                     <div class="form-group">
-                                        <label class="col-lg-3 control-label">Year</label>
-                                        <div class="col-lg-5">
-                                            <input type="text" class="form-control" name="year" placeholder="year" required value="{{old('year')}}">
-                                        </div>
-                                    </div>
-
-{{--                                    <div class="form-group">--}}
-{{--                                        <label class="col-lg-3 control-label"> Category </label>--}}
-{{--                                        <div class="col-lg-5">--}}
-{{--                                            <!-- Bootstrap Select with Search Input -->--}}
-{{--                                            <!--===================================================-->--}}
-{{--                                            <select class="form-control selectpicker" data-live-search="true" id="category_id" name="category_id">--}}
-{{--                                                @foreach($categories as $category)--}}
-{{--                                                <option value="{{ $category->id }}">{{ $category->name }}</option>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                            <!--===================================================-->--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-
-                                    <div class="form-group">
                                         <label class="col-lg-3 control-label">quantity</label>
                                         <div class="col-lg-5">
                                             <input type="text" class="form-control" name="quantity" placeholder="quantity" required value="{{old('quantity')}}">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-lg-3 control-label">location</label>
-                                        <div class="col-lg-5">
-                                            <input type="text" class="form-control" name="location" placeholder="location" required value="{{old('location')}}">
                                         </div>
                                     </div>
 

@@ -18,8 +18,10 @@ class CreateProductStocksTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('location') ->nullable();
             $table->integer('quantity')->nullable();
+            $table->string('status',10)->default(\App\Models\ProductStock::STOCK_IN);
             $table->foreign('product_id')->references('id')
                 ->on('products')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

@@ -33,6 +33,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Category</th>
+                            <th>Quantity</th>
                             <th>Year</th>
                             <th>Date</th>
                             <th>Action</th>
@@ -43,6 +44,7 @@
                         <tr>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->category->name }}</td>
+                            <td>{{ $product->stock->quantity }}</td>
                             <td>{{ $product->year }}</td>
                             <td>{{ $product->created_at }}</td>
 

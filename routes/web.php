@@ -25,6 +25,7 @@ Route::group(['web'],function()
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/home/dashboard', [App\Http\Controllers\HomeController::class, 'home_dashboard'])->name('home_dashboard');
     Route::get('/calender', [App\Http\Controllers\DashboardController::class, 'calender'])->name('calender');
+    Route::get('/show/history', [App\Http\Controllers\StockController::class, 'stock_show'])->name('stock_show');
 
     Route::resource('products', App\Http\Controllers\ProductController::class);
     Route::resource('category', App\Http\Controllers\CategoryController::class);

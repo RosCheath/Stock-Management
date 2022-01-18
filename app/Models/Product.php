@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
 
     public $fillable = [
-        'category_id' ,'user_id', 'name', 'unit_price','selling_price','photo','year'
+        'category_id' ,'stock_id','user_id', 'name', 'unit_price','selling_price','photo','year'
     ];
 
     public function category()
@@ -25,6 +25,6 @@ class Product extends Model
 
     public function stock()
     {
-        return $this->hasMany(ProductStock::class);
+        return $this->belongsTo(ProductStock::class);
     }
 }

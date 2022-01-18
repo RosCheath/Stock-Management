@@ -25,7 +25,7 @@
         <!-- end standard drop down -->
         <!-- standard drop down -->
         <li class="{{ (request()->is('stock*')) ? 'active' : '' }}">
-            <a href="{{route('stock.index')}}" > Stock </a>
+            <a href="{{route('stock.create')}}" > Stock </a>
         </li>
         <!-- end standard drop down -->
         <!-- standard drop down -->
@@ -49,8 +49,8 @@
         </li>
         <!-- end standard drop down -->
         <!-- standard drop down -->
-        <li class="{{ (request()->is('history*')) ? 'active' : '' }}">
-            <a href="{{route('history.index')}}" > History </a>
+        <li class="{{ (request()->is('stock_show')) ? 'active' : '' }}">
+            <a href="{{route('stock_show')}}" > History </a>
         </li>
         <!-- end standard drop down -->
         <!-- standard drop down -->

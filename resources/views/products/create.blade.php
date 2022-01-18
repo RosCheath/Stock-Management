@@ -59,7 +59,7 @@
                                             <!--===================================================-->
                                         </div>
                                     </div>
-
+{{--                                    <input type="text" class="hidden" name="stock_id" value="{{Auth::id()}}">--}}
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Unit Price</label>
                                         <div class="col-lg-5">
@@ -76,13 +76,7 @@
 
                                     <!--===================================================-->
                                 </div>
-                                <div class="panel-footer">
-                                    <div class="row">
-                                        <div class="col-sm-7 col-sm-offset-3">
-                                            <button class="btn btn-primary" type="submit">Submit</button>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -103,19 +97,6 @@
                                         </div>
                                     </div>
 
-{{--                                    <div class="form-group">--}}
-{{--                                        <label class="col-lg-3 control-label"> Category </label>--}}
-{{--                                        <div class="col-lg-5">--}}
-{{--                                            <!-- Bootstrap Select with Search Input -->--}}
-{{--                                            <!--===================================================-->--}}
-{{--                                            <select class="form-control selectpicker" data-live-search="true" id="category_id" name="category_id">--}}
-{{--                                                @foreach($categories as $category)--}}
-{{--                                                <option value="{{ $category->id }}">{{ $category->name }}</option>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                            <!--===================================================-->--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
 
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">quantity</label>
@@ -132,6 +113,13 @@
                                     </div>
 
                                     <!--===================================================-->
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-sm-7 col-sm-offset-3">
+                                            <button class="btn btn-primary" type="submit">Submit</button>
+                                        </div>
+                                    </div>
                                 </div>
                         </div>
                     </div>

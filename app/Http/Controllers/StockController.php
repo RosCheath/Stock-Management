@@ -16,39 +16,64 @@ class StockController extends Controller
     public function index()
     {
         $stock = ProductStock::get();
-        return view('stock.index',compact('stock'));
+        return view('stock.index', compact('stock'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+        $product_stocks = ProductStock::get();
+        $product = Product::get();
+        return view('stock.create', [
+            'product' => $product,
+            '$product_stocks' => $product_stocks
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param $items
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        //
+            if ($request['quantity'] && $request['quantity'] > 0) {
+                $new_item = new ProductStock();
+                $new_item->product_id = $request->product_id;
+                $new_item->status = $request->status_type;
+                $new_item->quantity = $request['quantity'];
+                $new_item->location = $request->location;
+                $new_item->save();
+
+                $stock_update = ProductStock::where('product_id', $request->product_id)->first();
+                if ($request->status_type == ProductStock::STOCK_IN) {
+                    //stock in
+                    $stock_update->quantity = $stock_update->quantity + $request['quantity'];
+                } else {
+                    //stock out
+                    $stock_update->quantity = $stock_update->quantity - $request['quantity'];
+                }
+                $stock_update->save();
+                return redirect(route('stock.create'));
+            }
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show($id)
     {
-        //
+        $product_stocks = ProductStock::findOrFail($id);
+        return view('stock.show', compact('product_stocks'));
     }
 
     /**
@@ -61,11 +86,13 @@ class StockController extends Controller
     {
         $product = Product::findOrFail($id);
         $product_stocks = ProductStock::findOrFail($id);
-        return view('stock.edit',
+        return view(
+            'stock.edit',
             [
                 'product_stocks' => $product_stocks,
                 'product' => $product,
-            ]);
+            ]
+        );
     }
 
     /**
@@ -93,5 +120,11 @@ class StockController extends Controller
         $product_stocks = ProductStock::findOrFail($id);
         $product_stocks->delete();
         return redirect(route('stock.index'));
+    }
+
+    public function stock_show()
+    {
+        $stock = ProductStock::get();
+        return view('stock.show_history',compact('stock'));
     }
 }

@@ -18,7 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('name', 50);
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('stock_id');
+            $table->unsignedBigInteger('stock_id')->nullable();
+            $table->string('location') ->nullable();
             $table->string('photo')->nullable();
             $table->integer('unit_price');
             $table->integer('selling_price');

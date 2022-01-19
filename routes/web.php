@@ -27,6 +27,8 @@ Route::group(['web'],function()
     Route::get('/calender', [App\Http\Controllers\DashboardController::class, 'calender'])->name('calender');
     Route::get('/show/history', [App\Http\Controllers\StockController::class, 'stock_show'])->name('stock_show');
 
+//    Route::get('/store/stock', [App\Http\Controllers\ProductController::class, 'store_stock_id'])->name('store_stock_id');
+
     Route::resource('products', App\Http\Controllers\ProductController::class);
     Route::resource('category', App\Http\Controllers\CategoryController::class);
     Route::resource('history', App\Http\Controllers\HistoryController::class);

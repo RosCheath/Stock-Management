@@ -36,6 +36,7 @@
                             <th>Quantity</th>
                             <th>Year</th>
                             <th>Date</th>
+                            <th>Time</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -46,7 +47,8 @@
                             <td>{{ $product->category->name }}</td>
                             <td>{{ $product->stock->quantity }}</td>
                             <td>{{ $product->year }}</td>
-                            <td>{{ $product->created_at }}</td>
+                            <td>{{ $product->updated_at->format('d-m-y') }}</td>
+                            <td>{{ $product->updated_at->format('H:i:s') }}</td>
 
                         <td>
                             <a class="btn btn-xs btn-primary" href="{{ route('products.edit', $product->id) }}"><i class="fa fa-edit"></i>

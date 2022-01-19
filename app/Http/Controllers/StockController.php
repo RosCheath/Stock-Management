@@ -48,7 +48,6 @@ class StockController extends Controller
                 $new_item->product_id = $request->product_id;
                 $new_item->status = $request->status_type;
                 $new_item->quantity = $request['quantity'];
-                $new_item->location = $request->location;
                 $new_item->save();
 
                 $stock_update = ProductStock::where('product_id', $request->product_id)->first();

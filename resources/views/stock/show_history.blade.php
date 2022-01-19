@@ -29,24 +29,26 @@
                     <table id="demo-dt-basic" class="table table-striped table-bordered">
                         <thead>
                         <tr>
+                            <th>#</th>
                             <th>Name</th>
                             <th>Category</th>
                             <th class="min-tablet">Quantity</th>
-                            <th class="min-tablet">Unit Price</th>
-                            <th class="min-desktop">Selling Price</th>
+                            <th class="min-tablet">Stock Type</th>
                             <th class="min-desktop">Date</th>
+                            <th class="min-desktop">Time</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @if ($history)
-                            @foreach ($history as $key => $history)
+                        @if ($stock)
+                            @foreach ($stock as $key => $stock)
                                 <tr>
-                                    <td>{{$history->product_history->name ?? ''}}</td>
-                                    <td>{{$history->category->name ?? ''}}</td>
-                                    <td>{{$history->product_history->quanity ?? ''}}</td>
-                                    <td>{{$history->product_history->unit_price ?? ''}}</td>
-                                    <td>{{$history->product_history->selling_price ?? ''}}</td>
-                                    <td>{{$history->product_history->created_at ?? ''}}</td>
+                                    <td>{{++$key}}</td>
+                                    <td>{{$stock->product->name ?? ''}}</td>
+                                    <td>{{$stock->product->category->name ?? ''}}</td>
+                                    <td>{{$stock->quantity ?? ''}}</td>
+                                    <td>{{$stock->status ?? ''}}</td>
+                                    <td>{{$stock->created_at->format('d-m-y') ?? ''}}</td>
+                                    <td>{{$stock->product->created_at->format('H:i:s')  ?? ''}}</td>
                                 </tr>
                             @endforeach
                         @endif
